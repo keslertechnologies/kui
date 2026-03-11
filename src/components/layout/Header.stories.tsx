@@ -18,16 +18,28 @@ export const Default: Story = {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="p-8">
-        <section id="hero" className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8">
+        <section
+          id="hero"
+          className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8"
+        >
           Hero Section (id="hero")
         </section>
-        <section id="services" className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8">
+        <section
+          id="services"
+          className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8"
+        >
           Services Section (id="services")
         </section>
-        <section id="portfolio" className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8">
+        <section
+          id="portfolio"
+          className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8"
+        >
           Portfolio Section (id="portfolio")
         </section>
-        <section id="contact" className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8">
+        <section
+          id="contact"
+          className="h-[500px] border-2 border-dashed border-muted flex items-center justify-center mb-8"
+        >
           Contact Section (id="contact")
         </section>
       </main>

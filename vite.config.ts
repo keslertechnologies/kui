@@ -1,6 +1,7 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwind from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
 import { resolve } from "path";
 
@@ -23,6 +24,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    tailwind(),
     dts({
       // Generates clean .d.ts files in dist/
       rollupTypes: true,

@@ -20,7 +20,11 @@ export const CustomLinks: Story = {
     links: [
       { label: "Home", href: "/" },
       { label: "Blog", href: "/blog" },
-      { label: "GitHub", href: "https://github.com/keslertechnologies", isExternal: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/keslertechnologies",
+        isExternal: true,
+      },
     ],
   },
 };
