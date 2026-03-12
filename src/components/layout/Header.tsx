@@ -152,10 +152,10 @@ export function Header({ navItems = [] }: HeaderProps) {
 
           <SheetContent
             side="right"
-            className="w-full sm:w-100 border-l border-border/30 mt-16 p-0"
+            className="w-full sm:w-100 border-l border-border/30 mt-16 p-0 h-[calc(100vh-4rem)]" // ← caps height to viewport minus offset
           >
-            <div className="h-full overflow-hidden">
-              <div className="h-full overflow-y-auto px-8 py-12 bg-background">
+            <div className="flex h-full flex-col bg-background">
+              <div className="flex-1 overflow-y-auto px-8 py-12">
                 <nav className="flex flex-col gap-12 md:gap-16">
                   <NavLinks mobile />
                 </nav>
