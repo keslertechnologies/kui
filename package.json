@@ -13,7 +13,7 @@
       "import": "./dist/keslers-ui.js",
       "require": "./dist/keslers-ui.umd.cjs"
     },
-    "./styles.css": "./dist/style.css"
+    "./styles.css": "./dist/keslers-ui.css"
   },
   "files": [
     "dist"

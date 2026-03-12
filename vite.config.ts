@@ -27,11 +27,12 @@ export default defineConfig({
     tailwind(),
     dts({
       // Generates clean .d.ts files in dist/
-      rollupTypes: true,
+      rollupTypes: false, // Disable temporarily to see if build passes
       // Merges types into fewer files (nicer DX)
       include: ["src/**/*"],
       // Skip test/story files if you add any later
-      exclude: ["**/*.test.tsx", "**/*.stories.tsx"],
+      exclude: ["**/*.test.tsx", "**/*.stories.tsx", "tailwind.config.ts"],
+      tsconfigPath: "./tsconfig.app.json",
     }),
   ],
   build: {
