@@ -5,3 +5,6 @@ export { Footer } from "./components/layout/Footer";
 
 // Utilities
 export * from "./lib/utils";
+
+// Providers
+export * from "./providers/UIProvider";

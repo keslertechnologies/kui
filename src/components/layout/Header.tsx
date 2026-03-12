@@ -2,7 +2,6 @@
 "use client";
 
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -14,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/custom/sheet";
 import { Menu, X } from "lucide-react";
 import { cn, scrollToSection } from "@/lib/utils";
+import { useUIConfig, type LinkComponent } from "@/providers/UIProvider";
 
 interface NavItem {
   label: string;
@@ -24,20 +24,16 @@ interface NavItem {
 
 interface HeaderProps {
   navItems?: NavItem[];
+  /** Optional override for the Link component used for navigation */
+  Link?: LinkComponent;
 }
 
-export function Header({ navItems = [] }: HeaderProps) {
+export function Header({ navItems = [], Link: LocalLink }: HeaderProps) {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
+  const { linkComponent: GlobalLink } = useUIConfig();
+  const Link = LocalLink ?? GlobalLink;
 
   const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
-    const isActive = (href: string) => {
-      if (href.startsWith("#")) {
-        return location.hash === href;
-      }
-      return location.pathname === href;
-    };
-
     const linkClass = mobile
       ? cn(
           "w-full text-left justify-start", // Ensures content starts from left edge
@@ -78,16 +74,13 @@ export function Header({ navItems = [] }: HeaderProps) {
                 scrollToSection(item.href.slice(1));
                 if (mobile) setOpen(false);
               }}
-              className={cn(linkClass, isActive(item.href) && "text-primary")}
+              className={linkClass}
             >
               {content}
             </button>
           ) : (
-            <NavigationMenuLink
-              asChild
-              className={cn(linkClass, isActive(item.href) && "text-primary")}
-            >
-              <Link to={item.href} onClick={() => mobile && setOpen(false)}>
+            <NavigationMenuLink asChild className={linkClass}>
+              <Link href={item.href} onClick={() => mobile && setOpen(false)}>
                 {content}
               </Link>
             </NavigationMenuLink>

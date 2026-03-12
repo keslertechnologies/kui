@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
-import { forwardRef, type ComponentPropsWithoutRef, type FC } from "react";
-import { Link } from "react-router-dom"; // peer/dev dep – consuming app or Storybook provides
+import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
+import { useUIConfig, type LinkComponent } from "@/providers/UIProvider";
 
 // Assuming Lucide icons – adjust if you ever switch libraries
 import { type LucideIcon, ExternalLink } from "lucide-react";
@@ -27,10 +27,15 @@ interface SocialItem {
 interface FooterProps extends ComponentPropsWithoutRef<"footer"> {
   links?: LinkItem[];
   socials?: SocialItem[];
+  /** Optional override for the Link component used for navigation */
+  Link?: LinkComponent;
 }
 
 export const Footer = forwardRef<HTMLElement, FooterProps>(
-  ({ className, links, socials, ...props }, ref) => {
+  ({ className, links, socials, Link: LocalLink, ...props }, ref) => {
+    const { linkComponent: GlobalLink } = useUIConfig();
+    const Link = LocalLink ?? GlobalLink;
+
     return (
       <footer
         ref={ref}
@@ -92,22 +97,16 @@ export const Footer = forwardRef<HTMLElement, FooterProps>(
 
                 return (
                   <li key={link.href}>
-                    {isExternal ? (
-                      <a
-                        href={link.href}
-                        className={commonClasses}
-                        target={shouldOpenInNewTab ? "_blank" : undefined}
-                        rel={
-                          shouldOpenInNewTab ? "noopener noreferrer" : undefined
-                        }
-                      >
-                        {content}
-                      </a>
-                    ) : (
-                      <Link to={link.href} className={commonClasses}>
-                        {content}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      className={commonClasses}
+                      target={shouldOpenInNewTab ? "_blank" : undefined}
+                      rel={
+                        shouldOpenInNewTab ? "noopener noreferrer" : undefined
+                      }
+                    >
+                      {content}
+                    </Link>
                   </li>
                 );
               })}

@@ -18,7 +18,30 @@ You must import the library's CSS in your main entry file (e.g., `main.tsx` or `
 import "@keslers/ui/styles.css";
 ```
 
-### 2. Import Components
+### 2. Integration with React Router (or other routers)
+
+Wrap your app with `UIProvider` to inject your router's `Link` component:
+
+```tsx
+import { UIProvider } from "@keslers/ui";
+import { Link as RouterLink } from "react-router-dom";
+
+// Mapping helper to bridge 'href' to 'to'
+const Link = ({ href, ...props }: any) => <RouterLink to={href} {...props} />;
+
+function App() {
+  return (
+    <UIProvider config={{ linkComponent: Link }}>
+      <Router>
+        <Header navItems={[{ label: "Home", href: "/" }]} />
+        {/* ... */}
+      </Router>
+    </UIProvider>
+  );
+}
+```
+
+### 3. Import Components
 
 ```tsx
 import { Header, Footer } from "@keslers/ui";
@@ -53,11 +76,3 @@ npm run build
 ```
 
 The build output will be in the `dist/` directory.
-
-### Publication
-
-The package is configured for private publication (`restricted` access) to the `@keslers` scope.
-
-```bash
-npm publish
-```
