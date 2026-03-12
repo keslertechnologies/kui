@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"; // peer/dev dep – consuming app or St
 import { cn } from "@/lib/utils";
 
 // Assuming Lucide icons – adjust if you ever switch libraries
-import type { LucideIcon } from "lucide-react";
+import { type LucideIcon, ExternalLink } from "lucide-react";
 
 interface LinkItem {
   label: string;
@@ -65,41 +65,49 @@ export const Footer = forwardRef<HTMLElement, FooterProps>(
             <ul className="flex flex-wrap justify-center items-center gap-6 md:gap-10 order-1 md:order-2 font-medium tracking-widest text-foreground">
               {links?.map((link) => {
                 const isExternal =
-                  link.isExternal ||
+                  link.isExternal === true ||
                   link.href.startsWith("http") ||
-                  link.href.startsWith("#");
+                  link.href.startsWith("//") ||
+                  link.href.startsWith("mailto:") ||
+                  link.href.startsWith("tel:") ||
+                  link.href.startsWith("https:");
 
-                if (isExternal) {
-                  return (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        className="hover:text-muted-foreground transition-colors"
-                        target={
-                          link.isExternal || link.href.startsWith("http")
-                            ? "_blank"
-                            : undefined
-                        }
-                        rel={
-                          link.isExternal || link.href.startsWith("http")
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  );
-                }
+                const shouldOpenInNewTab =
+                  isExternal && !link.href.startsWith("#");
+
+                const commonClasses =
+                  "inline-flex items-center gap-1.5 hover:text-muted-foreground transition-colors";
+
+                const content = (
+                  <>
+                    <span>{link.label}</span>
+                    {shouldOpenInNewTab && (
+                      <ExternalLink
+                        className="inline-block h-3.5 w-3.5 text-muted-foreground/60"
+                        aria-hidden="true" // ← hides from screen readers (icon is purely decorative)
+                      />
+                    )}
+                  </>
+                );
 
                 return (
                   <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className="hover:text-muted-foreground transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    {isExternal ? (
+                      <a
+                        href={link.href}
+                        className={commonClasses}
+                        target={shouldOpenInNewTab ? "_blank" : undefined}
+                        rel={
+                          shouldOpenInNewTab ? "noopener noreferrer" : undefined
+                        }
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <Link to={link.href} className={commonClasses}>
+                        {content}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
@@ -107,7 +115,14 @@ export const Footer = forwardRef<HTMLElement, FooterProps>(
 
             {/* Copyright */}
             <div className="order-2 md:order-3 font-medium tracking-widest whitespace-nowrap">
-              © {new Date().getFullYear()} KESLER TECHNOLOGIES
+              <a
+                href="https://keslertechnologies.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-visible:underline outline-none"
+              >
+                © {new Date().getFullYear()} KESLER TECHNOLOGIES
+              </a>
             </div>
           </div>
         </div>
