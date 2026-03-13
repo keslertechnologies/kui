@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwind from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js"; // ← added
 import { resolve } from "path";
 
 // https://vite.dev/config/
@@ -10,6 +11,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
+
 const dirname =
   typeof __dirname !== "undefined"
     ? __dirname
@@ -25,6 +27,7 @@ export default defineConfig({
   plugins: [
     react(),
     tailwind(),
+    cssInjectedByJsPlugin(), // ← injects all CSS into JS chunks at runtime
     dts({
       // Generates clean .d.ts files in dist/
       rollupTypes: false, // Disable temporarily to see if build passes
@@ -48,7 +51,16 @@ export default defineConfig({
     },
     rollupOptions: {
       // Don't bundle these — consumer provides them
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        // Add these if using shadcn/ui or common deps
+        // "@radix-ui/*",
+        // "class-variance-authority",
+        // "tailwind-merge",
+        // "clsx",
+      ],
       output: {
         globals: {
           react: "React",
