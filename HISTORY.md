@@ -16,4 +16,6 @@ npm install --save-dev react-icons
 npx shadcn@latest add sheet
 
 npx shadcn@latest add navigation-menu
+
+npm install --save-dev vite-tsconfig-paths
 ```
