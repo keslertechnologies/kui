@@ -10,4 +10,6 @@ npm create storybook@latest
 npm i tsup -D
 
 npx shadcn@latest init
+
+npm install --save-dev react-icons
 ```
