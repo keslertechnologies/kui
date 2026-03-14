@@ -18,4 +18,6 @@ npx shadcn@latest add sheet
 npx shadcn@latest add navigation-menu
 
 npm install --save-dev vite-tsconfig-paths
+
+npm install --save-dev @tailwindcss/cli
 ```
