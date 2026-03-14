@@ -12,4 +12,8 @@ npm i tsup -D
 npx shadcn@latest init
 
 npm install --save-dev react-icons
+
+npx shadcn@latest add sheet
+
+npx shadcn@latest add navigation-menu
 ```
