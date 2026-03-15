@@ -10,7 +10,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/custom/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/custom/sheet";
 import { Menu, X } from "lucide-react";
 
