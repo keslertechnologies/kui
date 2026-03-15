@@ -18,12 +18,23 @@ interface SocialItem {
   label?: string;
 }
 
+interface CopyrightItem {
+  companyName: string;
+  companyUrl: string;
+}
+
 interface FooterProps {
   links?: LinkItem[];
   socials?: SocialItem[];
+  copyright?: CopyrightItem;
 }
 
-export function Footer({ links = [], socials = [], ...props }: FooterProps) {
+export function Footer({
+  links = [],
+  socials = [],
+  copyright,
+  ...props
+}: FooterProps) {
   return (
     <footer
       className={
@@ -78,16 +89,18 @@ export function Footer({ links = [], socials = [], ...props }: FooterProps) {
           </ul>
 
           {/* Copyright */}
-          <div className="order-2 md:order-3 font-medium tracking-widest whitespace-nowrap">
-            <a
-              href="https://keslertechnologies.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="focus-visible:underline outline-none"
-            >
-              © {new Date().getFullYear()} KESLER TECHNOLOGIES
-            </a>
-          </div>
+          {copyright && (
+            <div className="order-2 md:order-3 font-medium tracking-widest whitespace-nowrap">
+              <a
+                href={copyright?.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-visible:underline outline-none"
+              >
+                © {new Date().getFullYear()} {copyright?.companyName}
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </footer>

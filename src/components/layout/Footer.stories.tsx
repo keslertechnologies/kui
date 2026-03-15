@@ -58,6 +58,11 @@ const socials = [
   },
 ];
 
+const copyright = {
+  companyName: "KESLER TECHNOLOGIES",
+  companyUrl: "https://keslertechnologies.com",
+};
+
 export const Empty: Story = {
   args: {},
 };
@@ -66,6 +71,7 @@ export const StandardUsage: Story = {
   args: {
     links,
     socials,
+    copyright,
   },
   parameters: {
     docs: {
@@ -83,5 +89,11 @@ export const LinksOnly: Story = {
 export const SocialsOnly: Story = {
   args: {
     socials,
+  },
+};
+
+export const CopyrightOnly: Story = {
+  args: {
+    copyright,
   },
 };

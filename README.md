@@ -29,6 +29,7 @@ function App() {
     <Layout
       header={
         <Header
+          logo="KESLER"
           navItems={[
             {
               label: "SERVICES",
@@ -56,6 +57,10 @@ function App() {
               href: "https://linkedin.com/company/keslertechnologies",
             },
           ]}
+          copyright={{
+            companyName: "KESLER TECHNOLOGIES",
+            companyUrl: "https://keslertechnologies.com",
+          }}
         />
       }
     >
@@ -71,9 +76,9 @@ function App() {
 ### Components
 
 - **Header**: Sticky navigation bar with logo, nav items, and mobile menu.
-  - Props: `navItems: { label: string; onClick: () => void }[]`, `onLogoClick: () => void`
+  - Props: `logo: ReactNode`, `navItems: { label: string; onClick: () => void }[]`, `onLogoClick: () => void`
 - **Footer**: Bottom bar with links, social icons, and copyright.
-  - Props: `links: { label: string; href: string; isExternal?: boolean; onClick?: () => void }[]`, `socials: { icon: IconType; href: string; label?: string; onClick?: () => void }[]`
+  - Props: `links: { label: string; href: string; isExternal?: boolean; onClick?: () => void }[]`, `socials: { icon: IconType; href: string; label?: string; onClick?: () => void }[]`, `copyright: { companyName: string; companyUrl: string }`
 - **Layout**: Wrapper for Header + main content + Footer.
   - Props: `header?: ReactNode`, `footer?: ReactNode`, `children: ReactNode`
 - **Custom Sheet**: Modified shadcn sheet with custom overlay and close button.

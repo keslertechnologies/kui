@@ -29,6 +29,7 @@ export const Empty: Story = {
 
 export const Populated: Story = {
   args: {
+    logo: "KESLER",
     navItems,
     onLogoClick,
   },

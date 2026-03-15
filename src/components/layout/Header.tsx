@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -22,9 +22,14 @@ interface NavItem {
 interface HeaderProps {
   navItems?: NavItem[];
   onLogoClick?: () => void;
+  logo: ReactNode;
 }
 
-export function Header({ navItems = [], onLogoClick = () => {} }: HeaderProps) {
+export function Header({
+  navItems = [],
+  onLogoClick = () => {},
+  logo,
+}: HeaderProps) {
   const [open, setOpen] = useState(false);
 
   const NavLinks = () => (
@@ -46,7 +51,7 @@ export function Header({ navItems = [], onLogoClick = () => {} }: HeaderProps) {
 
   return (
     <header
-      className="sticky top-0 z-60 w-full border-b border-border/20 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 pointer-events-auto"
+      className="sticky top-0 z-60 w-full border-b border-border/20 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 pointer-events-auto uppercase"
       style={{ pointerEvents: "auto" }}
     >
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
@@ -59,7 +64,7 @@ export function Header({ navItems = [], onLogoClick = () => {} }: HeaderProps) {
           }}
         >
           <h1 className="font-ddin text-1xl md:text-2xl tracking-tight">
-            KESLER TECHNOLOGIES
+            {logo}
           </h1>
         </div>
 
