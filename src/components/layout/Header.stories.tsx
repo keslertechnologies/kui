@@ -14,36 +14,28 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof Header>;
 
-/* Example nav items — mix of hash targets (scroll) and real routes (react-router Link) */
-const scrollNavItems = [
-  { label: "SERVICES", href: "#services" },
-  { label: "PORTFOLIO", href: "#portfolio" },
-  { label: "CONTACT", href: "#contact" },
+// Example nav items (realistic onClick handlers)
+const navItems = [
+  { label: "SERVICES", onClick: () => console.log("→ Services clicked") },
+  { label: "PORTFOLIO", onClick: () => console.log("→ Portfolio clicked") },
+  { label: "CONTACT", onClick: () => console.log("→ Contact clicked") },
 ];
 
-const pathNavItems = [
-  { label: "BLOG", href: "/blog" }, // ← demonstrates real react-router path
-  { label: "ABOUT", href: "/about" },
-];
+const onLogoClick = () => console.log("→ Logo clicked (hero scroll)");
 
-export const Default: Story = {
-  // Empty navItems → shows only logo + mobile trigger (useful for testing minimal state)
+export const Empty: Story = {
+  args: {},
 };
 
-export const StandardUsage: Story = {
+export const Populated: Story = {
   args: {
-    navItems: [...scrollNavItems, ...pathNavItems],
+    logo: "KESLER",
+    navItems,
+    onLogoClick,
   },
-};
-
-export const ScrollTargetsOnly: Story = {
-  args: {
-    navItems: [...scrollNavItems],
-  },
-};
-
-export const PathRoutesOnly: Story = {
-  args: {
-    navItems: [...pathNavItems],
+  parameters: {
+    docs: {
+      description: "Standard usage with navigation items",
+    },
   },
 };

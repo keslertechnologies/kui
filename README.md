@@ -1,78 +1,96 @@
-# @keslers/ui
+# @keslers/kui Component Library
 
-Kesler Technologies UI Component Library.
+A hyper-opinionated React component library built with Tailwind v4, shadcn/ui, and react-icons. Provides pre-styled components like Header, Footer, and Layout for quick setup in dark-themed apps.
 
 ## Installation
 
 ```bash
-npm install @keslers/ui
+npm install @keslers/kui
 ```
 
 ## Usage
 
-### 1. Import Styles
-
-You must import the library's CSS in your main entry file (e.g., `main.tsx` or `App.tsx`):
-
-```typescript
-import "@keslers/ui/styles.css";
-```
-
-### 2. Integration with React Router (or other routers)
-
-Wrap your app with `UIProvider` to inject your router's `Link` component:
+Import the stylesheet once in your main entry file (e.g., `index.tsx` or `App.tsx`):
 
 ```tsx
-import { UIProvider } from "@keslers/ui";
-import { Link as RouterLink } from "react-router-dom";
+import "@keslers/kui/styles.css";
+```
 
-// Mapping helper to bridge 'href' to 'to'
-const Link = ({ href, ...props }: any) => <RouterLink to={href} {...props} />;
+Then import and use components:
+
+```tsx
+import { Header } from "@keslers/kui";
+import { Footer } from "@keslers/kui";
+import { Layout } from "@keslers/kui";
+import { FaGithub, FaLinkedin } from "react-icons/fa"; // For social icons
 
 function App() {
   return (
-    <UIProvider config={{ linkComponent: Link }}>
-      <Router>
-        <Header navItems={[{ label: "Home", href: "/" }]} />
-        {/* ... */}
-      </Router>
-    </UIProvider>
+    <Layout
+      header={
+        <Header
+          logo="KESLER"
+          navItems={[
+            {
+              label: "SERVICES",
+              onClick: () => console.log("Services clicked"),
+            },
+            {
+              label: "PORTFOLIO",
+              onClick: () => console.log("Portfolio clicked"),
+            },
+            { label: "CONTACT", onClick: () => console.log("Contact clicked") },
+          ]}
+          onLogoClick={() => console.log("Logo clicked")}
+        />
+      }
+      footer={
+        <Footer
+          links={[
+            { label: "About", href: "/about" },
+            { label: "Privacy Policy", href: "/privacy" },
+          ]}
+          socials={[
+            { icon: FaGithub, href: "https://github.com/keslertechnologies" },
+            {
+              icon: FaLinkedin,
+              href: "https://linkedin.com/company/keslertechnologies",
+            },
+          ]}
+          copyright={{
+            companyName: "KESLER TECHNOLOGIES",
+            companyUrl: "https://keslertechnologies.com",
+          }}
+        />
+      }
+    >
+      {/* Your page content */}
+      <main className="flex-1 p-4">
+        <h1>Hello, World!</h1>
+      </main>
+    </Layout>
   );
 }
 ```
 
-### 3. Import Components
+### Components
 
-```tsx
-import { Header, Footer } from "@keslers/ui";
-
-function App() {
-  return (
-    <>
-      <Header navItems={[{ label: "Home", href: "/" }]} />
-      <main>{/* Your content */}</main>
-      <Footer />
-    </>
-  );
-}
-```
+- **Header**: Sticky navigation bar with logo, nav items, and mobile menu.
+  - Props: `logo: ReactNode`, `navItems: { label: string; onClick: () => void }[]`, `onLogoClick: () => void`
+- **Footer**: Bottom bar with links, social icons, and copyright.
+  - Props: `links: { label: string; href: string; isExternal?: boolean; onClick?: () => void }[]`, `socials: { icon: IconType; href: string; label?: string; onClick?: () => void }[]`, `copyright: { companyName: string; companyUrl: string }`
+- **Layout**: Wrapper for Header + main content + Footer.
+  - Props: `header?: ReactNode`, `footer?: ReactNode`, `children: ReactNode`
+- **Custom Sheet**: Modified shadcn sheet with custom overlay and close button.
 
 ## Development
 
-### Storybook
+- Clone the repo: `git clone https://github.com/keslertechnologies/kui.git`
+- Install deps: `npm install`
+- Run Storybook: `npm run storybook`
+- Build: `npm run build`
+- Test locally: Use `npm link` in the library, then `npm link @keslers/kui` in a test app.
 
-To start the component library development environment:
+## License
 
-```bash
-npm run storybook
-```
-
-### Build
-
-To build the library for publication:
-
-```bash
-npm run build
-```
-
-The build output will be in the `dist/` directory.
+MIT

@@ -1,7 +1,9 @@
 // src/components/Footer.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
 import { Footer } from "./Footer";
-import { Facebook, Github, Gitlab, Twitter, Twitch } from "lucide-react";
+
+// React-icons for social examples
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const meta: Meta<typeof Footer> = {
   title: "Layout/Footer",
@@ -15,60 +17,83 @@ const meta: Meta<typeof Footer> = {
 export default meta;
 type Story = StoryObj<typeof Footer>;
 
+const links = [
+  {
+    label: "SERVICES",
+    href: "#services",
+    onClick: () => console.log("→ Services clicked"),
+  },
+  {
+    label: "PORTFOLIO",
+    href: "#portfolio",
+    onClick: () => console.log("→ Portfolio clicked"),
+  },
+  {
+    label: "CONTACT",
+    href: "#contact",
+    onClick: () => console.log("→ Contact clicked"),
+  },
+  {
+    label: "BLOG",
+    href: "/blog",
+    onClick: () => console.log("→ Blog clicked"),
+  },
+];
+
 const socials = [
   {
-    icon: Twitch,
-    href: "https://twitch.tv/keslertechnologies",
-    label: "Twitch",
-  },
-  {
-    icon: Gitlab,
-    href: "https://gitlab.com/keslertechnologies",
-    label: "GitLab",
-  },
-  {
-    icon: Github,
+    icon: FaGithub,
     href: "https://github.com/keslertechnologies",
     label: "GitHub",
   },
   {
-    icon: Twitter,
-    href: "https://x.com/keslertechnologies",
-    label: "X / Twitter",
+    icon: FaLinkedin,
+    href: "https://linkedin.com/company/keslertechnologies",
+    label: "LinkedIn",
   },
   {
-    icon: Facebook,
-    href: "https://facebook.com/keslertechnologies",
-    label: "X / Twitter",
+    icon: FaTwitter,
+    href: "https://twitter.com/keslertech",
+    label: "Twitter",
   },
 ];
 
-const links = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
-  { label: "Portfolio", href: "/#portfolio" },
-  { label: "Contact", href: "/#contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "External Example", href: "example.com", isExternal: true },
-];
+const copyright = {
+  companyName: "KESLER TECHNOLOGIES",
+  companyUrl: "https://keslertechnologies.com",
+};
 
-export const Default: Story = {};
+export const Empty: Story = {
+  args: {},
+};
 
 export const StandardUsage: Story = {
   args: {
-    socials,
     links,
+    socials,
+    copyright,
+  },
+  parameters: {
+    docs: {
+      description: "Standard usage with navigation links and social icons",
+    },
   },
 };
 
-export const OnlyLinks: Story = {
+export const LinksOnly: Story = {
   args: {
     links,
   },
 };
 
-export const OnlySocials: Story = {
+export const SocialsOnly: Story = {
   args: {
     socials,
+  },
+};
+
+export const CopyrightOnly: Story = {
+  args: {
+    copyright,
   },
 };

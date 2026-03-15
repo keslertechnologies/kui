@@ -1,29 +1,25 @@
-/* client/src/index.css */
+/* src/index.css */
 
 @import "tailwindcss";
+@import "tw-animate-css";
 
 /* Load D-DIN */
-@font-face {
-  font-family: "D-DIN";
-  src: url("/fonts/D-DIN.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@theme {
-  --font-ddin: "D-DIN", sans-serif;
-  /* or if you want to override default sans: */
-  /* --font-sans: "D-DIN", ui-sans-serif, system-ui, sans-serif, ...; */
-}
-
-@plugin "tailwindcss-animate";
+@import "./fonts/D-DIN.css";
 
 /* Optional: Custom dark variant if you ever need dark: utilities later (not required for dark-only) */
 /* @custom-variant dark (&:where(.dark, .dark *)); */
 
 /* Map shadcn variables to your dark palette using @theme inline */
 @theme inline {
+  --font-ddin: "D-DIN", system-ui, sans-serif;
+
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.2;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
