@@ -1,69 +1,91 @@
-# React + TypeScript + Vite
+# @keslers/kui Component Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A hyper-opinionated React component library built with Tailwind v4, shadcn/ui, and react-icons. Provides pre-styled components like Header, Footer, and Layout for quick setup in dark-themed apps.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm install @keslers/kui
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+Import the stylesheet once in your main entry file (e.g., `index.tsx` or `App.tsx`):
 
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```tsx
+import "@keslers/kui/styles.css";
 ```
+
+Then import and use components:
+
+```tsx
+import { Header } from "@keslers/kui";
+import { Footer } from "@keslers/kui";
+import { Layout } from "@keslers/kui";
+import { FaGithub, FaLinkedin } from "react-icons/fa"; // For social icons
+
+function App() {
+  return (
+    <Layout
+      header={
+        <Header
+          navItems={[
+            {
+              label: "SERVICES",
+              onClick: () => console.log("Services clicked"),
+            },
+            {
+              label: "PORTFOLIO",
+              onClick: () => console.log("Portfolio clicked"),
+            },
+            { label: "CONTACT", onClick: () => console.log("Contact clicked") },
+          ]}
+          onLogoClick={() => console.log("Logo clicked")}
+        />
+      }
+      footer={
+        <Footer
+          links={[
+            { label: "About", href: "/about" },
+            { label: "Privacy Policy", href: "/privacy" },
+          ]}
+          socials={[
+            { icon: FaGithub, href: "https://github.com/keslertechnologies" },
+            {
+              icon: FaLinkedin,
+              href: "https://linkedin.com/company/keslertechnologies",
+            },
+          ]}
+        />
+      }
+    >
+      {/* Your page content */}
+      <main className="flex-1 p-4">
+        <h1>Hello, World!</h1>
+      </main>
+    </Layout>
+  );
+}
+```
+
+### Components
+
+- **Header**: Sticky navigation bar with logo, nav items, and mobile menu.
+  - Props: `navItems: { label: string; onClick: () => void }[]`, `onLogoClick: () => void`
+- **Footer**: Bottom bar with links, social icons, and copyright.
+  - Props: `links: { label: string; href: string; isExternal?: boolean; onClick?: () => void }[]`, `socials: { icon: IconType; href: string; label?: string; onClick?: () => void }[]`
+- **Layout**: Wrapper for Header + main content + Footer.
+  - Props: `header?: ReactNode`, `footer?: ReactNode`, `children: ReactNode`
+- **Custom Sheet**: Modified shadcn sheet with custom overlay and close button.
+
+## Development
+
+- Clone the repo: `git clone https://github.com/keslertechnologies/kui.git`
+- Install deps: `npm install`
+- Run Storybook: `npm run storybook`
+- Build: `npm run build`
+- Test locally: Use `npm link` in the library, then `npm link @keslers/kui` in a test app.
+
+## License
+
+MIT
