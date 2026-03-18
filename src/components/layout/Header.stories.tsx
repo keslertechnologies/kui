@@ -16,12 +16,25 @@ type Story = StoryObj<typeof Header>;
 
 // Example nav items (realistic onClick handlers)
 const navItems = [
-  { label: "SERVICES", onClick: () => console.log("→ Services clicked") },
-  { label: "PORTFOLIO", onClick: () => console.log("→ Portfolio clicked") },
-  { label: "CONTACT", onClick: () => console.log("→ Contact clicked") },
+  {
+    label: "SERVICES",
+    href: "#services",
+    onClick: () => console.log("→ Services clicked"),
+  },
+  {
+    label: "PORTFOLIO",
+    href: "#portfolio",
+    onClick: () => console.log("→ Portfolio clicked"),
+  },
+  {
+    label: "CONTACT",
+    href: "/contact",
+    onClick: () => console.log("→ Contact clicked"),
+  },
 ];
 
 const onLogoClick = () => console.log("→ Logo clicked (hero scroll)");
+const logoHref = "/";
 
 export const Empty: Story = {
   args: {},
@@ -31,6 +44,7 @@ export const Populated: Story = {
   args: {
     logo: "KESLER",
     navItems,
+    logoHref,
     onLogoClick,
   },
   parameters: {

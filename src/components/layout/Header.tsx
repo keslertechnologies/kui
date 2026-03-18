@@ -16,17 +16,20 @@ import { Menu, X } from "lucide-react";
 
 interface NavItem {
   label: string;
-  onClick: () => void;
+  href?: string;
+  onClick?: () => void;
 }
 
 interface HeaderProps {
   navItems?: NavItem[];
+  logoHref?: string;
   onLogoClick?: () => void;
   logo: ReactNode;
 }
 
 export function Header({
   navItems = [],
+  logoHref = "/",
   onLogoClick = () => {},
   logo,
 }: HeaderProps) {
@@ -39,6 +42,7 @@ export function Header({
           <NavigationMenuItem key={item.label}>
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
+              href={item.href}
               onClick={item.onClick}
             >
               <span className="font-ddin text-1xl">{item.label}</span>
@@ -56,7 +60,8 @@ export function Header({
     >
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         {/* Logo / Brand */}
-        <div
+        <a
+          href={logoHref}
           className="flex items-center gap-1 cursor-pointer group"
           onClick={() => {
             onLogoClick();
@@ -66,7 +71,7 @@ export function Header({
           <h1 className="font-ddin text-1xl md:text-2xl tracking-tight">
             {logo}
           </h1>
-        </div>
+        </a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
@@ -87,10 +92,11 @@ export function Header({
             <div className="flex min-h-[calc(100vh-5rem)] flex-col justify-center px-8 py-12 bg-background">
               <nav className="flex flex-col gap-12 md:gap-16">
                 {navItems.map((item) => (
-                  <button
+                  <a
                     key={item.label}
+                    href={item.href}
                     onClick={() => {
-                      item.onClick();
+                      if (item.onClick) item.onClick();
                       setOpen(false);
                     }}
                     className="
@@ -101,10 +107,11 @@ export function Header({
                       transition-colors duration-300
                       py-4 px-4 rounded-lg
                       hover:bg-muted/30 focus:outline-none focus:ring-2 focus:ring-ring
+                      block
                     "
                   >
                     {item.label}
-                  </button>
+                  </a>
                 ))}
               </nav>
             </div>
