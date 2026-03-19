@@ -43,6 +43,7 @@ export const Empty: Story = {
 export const Populated: Story = {
   args: {
     logo: "KESLER",
+    secondaryLogo: "STUDIO",
     navItems,
     logoHref,
     onLogoClick,
@@ -50,6 +51,21 @@ export const Populated: Story = {
   parameters: {
     docs: {
       description: "Standard usage with navigation items",
+    },
+  },
+};
+
+export const WithSecondaryLogo: Story = {
+  args: {
+    logo: "KESLER",
+    secondaryLogo: "KUI",
+    navItems,
+    logoHref,
+    onLogoClick,
+  },
+  parameters: {
+    docs: {
+      description: "Header with secondary logo text",
     },
   },
 };

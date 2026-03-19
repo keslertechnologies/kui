@@ -25,6 +25,7 @@ interface HeaderProps {
   logoHref?: string;
   onLogoClick?: () => void;
   logo: ReactNode;
+  secondaryLogo?: ReactNode;
 }
 
 export function Header({
@@ -32,6 +33,7 @@ export function Header({
   logoHref = "/",
   onLogoClick = () => {},
   logo,
+  secondaryLogo,
 }: HeaderProps) {
   const [open, setOpen] = useState(false);
 
@@ -71,6 +73,11 @@ export function Header({
           <h1 className="font-ddin text-1xl md:text-2xl tracking-tight">
             {logo}
           </h1>
+          {secondaryLogo && (
+            <span className="font-ddin text-1xl md:text-2xl tracking-tight text-muted-foreground">
+              {secondaryLogo}
+            </span>
+          )}
         </a>
 
         {/* Desktop Navigation */}
