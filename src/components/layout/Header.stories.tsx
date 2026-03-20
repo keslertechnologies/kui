@@ -1,6 +1,7 @@
 // src/components/layout/Header.stories.tsx
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Header } from "./Header";
+import { ShoppingCart } from "lucide-react";
 
 const meta: Meta<typeof Header> = {
   title: "Layout/Header",
@@ -66,6 +67,33 @@ export const WithSecondaryLogo: Story = {
   parameters: {
     docs: {
       description: "Header with secondary logo text",
+    },
+  },
+};
+
+export const WithComponentNavItem: Story = {
+  args: {
+    logo: "KESLER",
+    navItems: [
+      ...navItems,
+      {
+        label: (
+          <div className="relative inline-flex items-center">
+            <ShoppingCart className="h-5 w-5" />
+            <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">
+              3
+            </span>
+          </div>
+        ),
+        href: "/cart",
+      },
+    ],
+    logoHref,
+    onLogoClick,
+  },
+  parameters: {
+    docs: {
+      description: "Header with a cart icon and badge as a navigation item",
     },
   },
 };

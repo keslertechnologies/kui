@@ -15,7 +15,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/custom/sheet";
 import { Menu, X } from "lucide-react";
 
 interface NavItem {
-  label: string;
+  label: ReactNode;
   href?: string;
   onClick?: () => void;
 }
@@ -40,14 +40,22 @@ export function Header({
   const NavLinks = () => (
     <NavigationMenu>
       <NavigationMenuList className="gap-2 md:gap-6">
-        {navItems.map((item) => (
-          <NavigationMenuItem key={item.label}>
+        {navItems.map((item, index) => (
+          <NavigationMenuItem
+            key={
+              item.href || (typeof item.label === "string" ? item.label : index)
+            }
+          >
             <NavigationMenuLink
               className={navigationMenuTriggerStyle()}
               href={item.href}
               onClick={item.onClick}
             >
-              <span className="font-ddin text-1xl">{item.label}</span>
+              {typeof item.label === "string" ? (
+                <span className="font-ddin text-1xl">{item.label}</span>
+              ) : (
+                item.label
+              )}
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
@@ -98,9 +106,12 @@ export function Header({
           >
             <div className="flex min-h-[calc(100vh-5rem)] flex-col justify-center px-8 py-12 bg-background">
               <nav className="flex flex-col gap-12 md:gap-16">
-                {navItems.map((item) => (
+                {navItems.map((item, index) => (
                   <a
-                    key={item.label}
+                    key={
+                      item.href ||
+                      (typeof item.label === "string" ? item.label : index)
+                    }
                     href={item.href}
                     onClick={() => {
                       if (item.onClick) item.onClick();
@@ -117,7 +128,11 @@ export function Header({
                       block
                     "
                   >
-                    {item.label}
+                    {typeof item.label === "string" ? (
+                      <span className="font-ddin">{item.label}</span>
+                    ) : (
+                      item.label
+                    )}
                   </a>
                 ))}
               </nav>
