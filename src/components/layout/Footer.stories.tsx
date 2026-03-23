@@ -63,11 +63,7 @@ const copyright = {
   companyUrl: "https://keslertechnologies.com",
 };
 
-export const Empty: Story = {
-  args: {},
-};
-
-export const StandardUsage: Story = {
+export const Default: Story = {
   args: {
     links,
     socials,
@@ -75,25 +71,41 @@ export const StandardUsage: Story = {
   },
   parameters: {
     docs: {
-      description: "Standard usage with navigation links and social icons",
+      description:
+        "Full footer with all standard props: navigation links, social icons, and copyright.",
     },
   },
 };
 
-export const LinksOnly: Story = {
+export const Minimal: Story = {
+  args: {
+    copyright,
+  },
+  parameters: {
+    docs: {
+      description: "Footer with minimal content (copyright only).",
+    },
+  },
+};
+
+export const Navigation: Story = {
   args: {
     links,
   },
-};
-
-export const SocialsOnly: Story = {
-  args: {
-    socials,
+  parameters: {
+    docs: {
+      description: "Footer focusing on navigation links.",
+    },
   },
 };
 
-export const CopyrightOnly: Story = {
+export const Socials: Story = {
   args: {
-    copyright,
+    socials,
+  },
+  parameters: {
+    docs: {
+      description: "Footer focusing on social media icons.",
+    },
   },
 };
