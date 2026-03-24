@@ -9,10 +9,11 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/components/custom/navigation-menu";
 import { Button } from "@/components/custom/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/custom/sheet";
 import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface NavItem {
   label: ReactNode;
@@ -47,7 +48,11 @@ export function Header({
             }
           >
             <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                typeof item.label !== "string" &&
+                  "h-12 w-12 p-0 bg-transparent hover:bg-muted/50 flex items-center justify-center rounded-full",
+              )}
               href={item.href}
               onClick={item.onClick}
             >

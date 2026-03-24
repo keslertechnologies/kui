@@ -37,7 +37,7 @@ const basicNavItems = [
 const componentNavItem = {
   label: (
     <div className="relative inline-flex items-center">
-      <ShoppingCart className="h-5 w-5" />
+      <ShoppingCart className="h-7 w-7" />
       <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">
         3
       </span>
