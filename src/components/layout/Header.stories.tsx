@@ -1,7 +1,7 @@
 // src/components/layout/Header.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Header } from "./Header";
-import { ShoppingCart } from "lucide-react";
+import { IconWithBadge } from "../misc/IconWithBadge";
 
 const meta: Meta<typeof Header> = {
   title: "Layout/Header",
@@ -35,14 +35,7 @@ const basicNavItems = [
 ];
 
 const componentNavItem = {
-  label: (
-    <div className="relative inline-flex items-center">
-      <ShoppingCart className="h-7 w-7" />
-      <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[10px] font-bold px-1.5 py-0.5 rounded-full min-w-[18px] text-center">
-        3
-      </span>
-    </div>
-  ),
+  label: <IconWithBadge variant="cart" itemCount={3} />,
   href: "/cart",
   onClick: () => console.log("→ Cart clicked"),
 };
