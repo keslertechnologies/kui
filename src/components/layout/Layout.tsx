@@ -11,9 +11,9 @@ interface LayoutProps {
 
 export function Layout({ header, footer, children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-background text-foreground font-ddin flex flex-col">
+    <div className="kui:min-h-screen kui:bg-background kui:text-foreground kui:font-ddin kui:flex kui:flex-col">
       {header}
-      <div className="flex-1">{children}</div>
+      <div className="kui:flex-1">{children}</div>
       {footer}
     </div>
   );

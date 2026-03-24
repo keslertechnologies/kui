@@ -58,7 +58,7 @@ export const Default: Story = {
   args: {
     header: (
       <Header
-        logo={<span className="font-bold">KESLER</span>}
+        logo={<span className="kui:font-bold">KESLER</span>}
         navItems={navItems}
         logoHref="/"
       />
@@ -67,20 +67,24 @@ export const Default: Story = {
       <Footer links={footerLinks} socials={socials} copyright={copyright} />
     ),
     children: (
-      <main className="container mx-auto px-6 py-12 flex flex-col items-center justify-center min-h-[60vh] text-center">
-        <h2 className="text-4xl md:text-6xl font-bold mb-6">Welcome to KUI</h2>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
+      <main className="kui:container kui:mx-auto kui:px-6 kui:py-12 kui:flex kui:flex-col kui:items-center kui:justify-center kui:min-h-[60vh] kui:text-center">
+        <h2 className="kui:text-4xl kui:md:text-6xl kui:font-bold kui:mb-6">
+          Welcome to KUI
+        </h2>
+        <p className="kui:text-lg kui:md:text-xl kui:text-muted-foreground kui:max-w-2xl">
           This is a demonstration of the Layout component, which brings together
           the Header, Footer, and page content into a cohesive structure.
         </p>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div className="kui:mt-8 kui:grid kui:grid-cols-1 kui:md:grid-cols-3 kui:gap-6 kui:w-full">
           {[1, 2, 3].map((i) => (
             <div
               key={i}
-              className="p-8 rounded-xl border border-border/50 bg-card hover:border-primary/50 transition-colors"
+              className="kui:p-8 kui:rounded-xl kui:border kui:border-border/50 kui:bg-card kui:hover:border-primary/50 kui:transition-colors"
             >
-              <h3 className="text-xl font-bold mb-2">Feature {i}</h3>
-              <p className="text-muted-foreground text-sm">
+              <h3 className="kui:text-xl kui:font-bold kui:mb-2">
+                Feature {i}
+              </h3>
+              <p className="kui:text-muted-foreground kui:text-sm">
                 A brief description of this amazing feature that makes our
                 library stand out.
               </p>

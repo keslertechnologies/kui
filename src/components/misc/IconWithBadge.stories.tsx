@@ -33,14 +33,14 @@ export const CartVariant: Story = {
 export const CustomIconBell: Story = {
   args: {
     itemCount: 5,
-    children: <Bell className="h-7 w-7" />,
+    children: <Bell className="kui:h-7 kui:w-7" />,
   },
 };
 
 export const CustomIconMail: Story = {
   args: {
     itemCount: 12,
-    children: <Mail className="h-7 w-7" />,
+    children: <Mail className="kui:h-7 kui:w-7" />,
   },
 };
 
@@ -53,7 +53,7 @@ export const LargeBadge: Story = {
 
 export const HeaderContext: Story = {
   render: (args) => (
-    <div className="bg-background p-8 border border-border flex items-center justify-center">
+    <div className="kui:bg-background kui:p-8 kui:border kui:border-border kui:flex kui:items-center kui:justify-center">
       <IconWithBadge {...args} />
     </div>
   ),

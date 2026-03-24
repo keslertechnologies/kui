@@ -5,33 +5,34 @@ import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group/button shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "kui:group/button kui:shrink-0 kui:items-center kui:justify-center kui:rounded-lg kui:border kui:border-transparent kui:bg-clip-padding kui:text-sm kui:font-medium kui:whitespace-nowrap kui:transition-all kui:outline-none kui:select-none kui:focus-visible:border-ring kui:focus-visible:ring-3 kui:focus-visible:ring-ring/50 kui:active:translate-y-px kui:disabled:pointer-events-none kui:disabled:opacity-50 kui:aria-invalid:border-destructive kui:aria-invalid:ring-3 kui:aria-invalid:ring-destructive/20 kui:dark:aria-invalid:border-destructive/50 kui:dark:aria-invalid:ring-destructive/40 kui:[&_svg]:pointer-events-none kui:[&_svg]:shrink-0 kui:[&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        default:
+          "kui:bg-primary kui:text-primary-foreground kui:[a]:hover:bg-primary/80",
         outline:
-          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+          "kui:border-border kui:bg-background kui:hover:bg-muted kui:hover:text-foreground kui:aria-expanded:bg-muted kui:aria-expanded:text-foreground kui:dark:border-input kui:dark:bg-input/30 kui:dark:hover:bg-input/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+          "kui:bg-secondary kui:text-secondary-foreground kui:hover:bg-secondary/80 kui:aria-expanded:bg-secondary kui:aria-expanded:text-secondary-foreground",
         ghost:
-          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+          "kui:hover:bg-muted kui:hover:text-foreground kui:aria-expanded:bg-muted kui:aria-expanded:text-foreground kui:dark:hover:bg-muted/50",
         destructive:
-          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
-        link: "text-primary underline-offset-4 hover:underline",
+          "kui:bg-destructive/10 kui:text-destructive kui:hover:bg-destructive/20 kui:focus-visible:border-destructive/40 kui:focus-visible:ring-destructive/20 kui:dark:bg-destructive/20 kui:dark:hover:bg-destructive/30 kui:dark:focus-visible:ring-destructive/40",
+        link: "kui:text-primary kui:underline-offset-4 kui:hover:underline",
       },
       size: {
         default:
-          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
-        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
-        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
-        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
-        icon: "size-8",
+          "kui:h-8 kui:gap-1.5 kui:px-2.5 kui:has-data-[icon=inline-end]:pr-2 kui:has-data-[icon=inline-start]:pl-2",
+        xs: "kui:h-6 kui:gap-1 kui:rounded-[min(var(--radius-md),10px)] kui:px-2 kui:text-xs kui:in-data-[slot=button-group]:rounded-lg kui:has-data-[icon=inline-end]:pr-1.5 kui:has-data-[icon=inline-start]:pl-1.5 kui:[&_svg:not([class*='size-'])]:size-3",
+        sm: "kui:h-7 kui:gap-1 kui:rounded-[min(var(--radius-md),12px)] kui:px-2.5 kui:text-[0.8rem] kui:in-data-[slot=button-group]:rounded-lg kui:has-data-[icon=inline-end]:pr-1.5 kui:has-data-[icon=inline-start]:pl-1.5 kui:[&_svg:not([class*='size-'])]:size-3.5",
+        lg: "kui:h-9 kui:gap-1.5 kui:px-2.5 kui:has-data-[icon=inline-end]:pr-3 kui:has-data-[icon=inline-start]:pl-3",
+        icon: "kui:size-8",
         "icon-xs":
-          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+          "kui:size-6 kui:rounded-[min(var(--radius-md),10px)] kui:in-data-[slot=button-group]:rounded-lg kui:[&_svg:not([class*='size-'])]:size-3",
         "icon-sm":
-          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
-        "icon-lg": "size-9",
+          "kui:size-7 kui:rounded-[min(var(--radius-md),12px)] kui:in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "kui:size-9",
       },
     },
     defaultVariants: {

@@ -1,6 +1,6 @@
 /* src/index.css */
 
-@import "tailwindcss";
+@import "tailwindcss" prefix(kui);
 @import "tw-animate-css";
 
 /* Load D-DIN */

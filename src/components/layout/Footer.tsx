@@ -38,33 +38,33 @@ export function Footer({
   return (
     <footer
       className={
-        "bg-background pt-12 pb-8 w-full font-ddin uppercase text-[10px] sm:text-xs"
+        "kui:bg-background kui:pt-12 kui:pb-8 kui:w-full kui:font-ddin kui:uppercase kui:text-[10px] kui:sm:text-xs"
       }
       {...props}
     >
-      <div className="container mx-auto px-6 max-w-[1400px]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 text-muted-foreground">
+      <div className="kui:container kui:mx-auto kui:px-6 kui:max-w-[1400px]">
+        <div className="kui:flex kui:flex-col kui:md:flex-row kui:items-center kui:justify-between kui:gap-6 kui:md:gap-4 kui:text-muted-foreground">
           {/* Social Icons */}
-          <div className="flex items-center gap-6 order-3 md:order-1">
+          <div className="kui:flex kui:items-center kui:gap-6 kui:order-3 kui:md:order-1">
             {socials.map((social) => {
               const IconComp = social.icon;
               return (
                 <a
                   key={social.href}
                   href={social.href}
-                  className="hover:text-foreground transition-colors"
+                  className="kui:hover:text-foreground kui:transition-colors"
                   target={"_blank"}
                   rel={"noopener noreferrer"}
                   aria-label={social.label ?? "Social link"}
                 >
-                  <IconComp className="w-4 h-4" />
+                  <IconComp className="kui:w-4 kui:h-4" />
                 </a>
               );
             })}
           </div>
 
           {/* Navigation Links */}
-          <ul className="flex flex-wrap justify-center items-center gap-6 md:gap-10 order-1 md:order-2 font-medium tracking-widest text-foreground">
+          <ul className="kui:flex kui:flex-wrap kui:justify-center kui:items-center kui:gap-6 kui:md:gap-10 kui:order-1 kui:md:order-2 kui:font-medium kui:tracking-widest kui:text-foreground">
             {links.map((link) => {
               return (
                 <li key={link.href}>
@@ -73,12 +73,12 @@ export function Footer({
                     onClick={link.onClick}
                     target={link.isExternal ? "_blank" : undefined}
                     rel={link.isExternal ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center gap-1.5 hover:text-muted-foreground transition-colors"
+                    className="kui:inline-flex kui:items-center kui:gap-1.5 kui:hover:text-muted-foreground kui:transition-colors"
                   >
                     <span>{link.label}</span>
                     {link.isExternal && (
                       <FiExternalLink
-                        className="inline-block h-3.5 w-3.5 text-muted-foreground/60"
+                        className="kui:inline-block kui:h-3.5 kui:w-3.5 kui:text-muted-foreground/60"
                         aria-hidden="true"
                       />
                     )}
@@ -90,12 +90,12 @@ export function Footer({
 
           {/* Copyright */}
           {copyright && (
-            <div className="order-2 md:order-3 font-medium tracking-widest whitespace-nowrap">
+            <div className="kui:order-2 kui:md:order-3 kui:font-medium kui:tracking-widest kui:whitespace-nowrap">
               <a
                 href={copyright?.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="focus-visible:underline outline-none"
+                className="kui:focus-visible:underline kui:outline-none"
               >
                 © {new Date().getFullYear()} {copyright?.companyName}
               </a>

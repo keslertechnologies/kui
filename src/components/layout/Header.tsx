@@ -40,7 +40,7 @@ export function Header({
 
   const NavLinks = () => (
     <NavigationMenu>
-      <NavigationMenuList className="gap-2 md:gap-6">
+      <NavigationMenuList className="kui:gap-2 kui:md:gap-6">
         {navItems.map((item, index) => (
           <NavigationMenuItem
             key={
@@ -51,13 +51,13 @@ export function Header({
               className={cn(
                 navigationMenuTriggerStyle(),
                 typeof item.label !== "string" &&
-                  "h-12 w-12 p-0 bg-transparent hover:bg-muted/50 flex items-center justify-center rounded-full",
+                  "kui:h-12 kui:w-12 kui:p-0 kui:bg-transparent kui:hover:bg-muted/50 kui:flex kui:items-center kui:justify-center kui:rounded-full",
               )}
               href={item.href}
               onClick={item.onClick}
             >
               {typeof item.label === "string" ? (
-                <span className="font-ddin text-1xl">{item.label}</span>
+                <span className="kui:font-ddin kui:text-1xl">{item.label}</span>
               ) : (
                 item.label
               )}
@@ -70,47 +70,51 @@ export function Header({
 
   return (
     <header
-      className="sticky top-0 z-60 w-full border-b border-border/20 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 pointer-events-auto uppercase"
+      className="kui:sticky kui:top-0 kui:z-60 kui:w-full kui:border-b kui:border-border/20 kui:bg-background/95 kui:backdrop-blur kui:supports-backdrop-filter:bg-background/60 kui:pointer-events-auto kui:uppercase"
       style={{ pointerEvents: "auto" }}
     >
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="kui:container kui:flex kui:h-16 kui:items-center kui:justify-between kui:px-4 kui:md:px-6">
         {/* Logo / Brand */}
         <a
           href={logoHref}
-          className="flex items-center gap-1 cursor-pointer group"
+          className="kui:flex kui:items-center kui:gap-1 kui:cursor-pointer kui:group"
           onClick={() => {
             onLogoClick();
             setOpen(false);
           }}
         >
-          <h1 className="font-ddin text-1xl md:text-2xl tracking-tight">
+          <h1 className="kui:font-ddin kui:text-1xl kui:md:text-2xl kui:tracking-tight">
             {logo}
           </h1>
           {secondaryLogo && (
-            <span className="font-ddin text-1xl md:text-2xl tracking-tight text-muted-foreground">
+            <span className="kui:font-ddin kui:text-1xl kui:md:text-2xl kui:tracking-tight kui:text-muted-foreground">
               {secondaryLogo}
             </span>
           )}
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="kui:hidden kui:md:flex kui:items-center kui:gap-6">
           <NavLinks />
         </div>
 
         {/* Mobile Menu Trigger + Sheet */}
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="kui:md:hidden">
             <Button variant="ghost" size="icon" aria-label="Toggle menu">
-              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {open ? (
+                <X className="kui:h-6 kui:w-6" />
+              ) : (
+                <Menu className="kui:h-6 kui:w-6" />
+              )}
             </Button>
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="w-100 border-l border-border/30 mt-16"
+            className="kui:w-100 kui:border-l kui:border-border/30 kui:mt-16"
           >
-            <div className="flex min-h-[calc(100vh-5rem)] flex-col justify-center px-8 py-12 bg-background">
-              <nav className="flex flex-col gap-12 md:gap-16">
+            <div className="kui:flex kui:min-h-[calc(100vh-5rem)] kui:flex-col kui:justify-center kui:px-8 kui:py-12 kui:bg-background">
+              <nav className="kui:flex kui:flex-col kui:gap-12 kui:md:gap-16">
                 {navItems.map((item, index) => (
                   <a
                     key={
@@ -123,18 +127,18 @@ export function Header({
                       setOpen(false);
                     }}
                     className="
-                      w-full text-left
-                      text-3xl md:text-4xl 
-                      font-ddin font-medium tracking-wider
-                      text-foreground hover:text-primary
-                      transition-colors duration-300
-                      py-4 px-4 rounded-lg
-                      hover:bg-muted/30 focus:outline-none focus:ring-2 focus:ring-ring
-                      block
+                      kui:w-full kui:text-left
+                      kui:text-3xl kui:md:text-4xl 
+                      kui:font-ddin kui:font-medium kui:tracking-wider
+                      kui:text-foreground kui:hover:text-primary
+                      kui:transition-colors kui:duration-300
+                      kui:py-4 kui:px-4 kui:rounded-lg
+                      kui:hover:bg-muted/30 kui:focus:outline-none kui:focus:ring-2 kui:focus:ring-ring
+                      kui:block
                     "
                   >
                     {typeof item.label === "string" ? (
-                      <span className="font-ddin">{item.label}</span>
+                      <span className="kui:font-ddin">{item.label}</span>
                     ) : (
                       item.label
                     )}
