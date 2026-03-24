@@ -1,4 +1,6 @@
 {
+  "workbench.colorTheme": "Shades of Purple",
+  // code/codium/antigravity --install-extension ahmadawais.shades-of-purple
   "css.lint.unknownAtRules": "ignore",
   "css.validate": false,
   "files.associations": {
