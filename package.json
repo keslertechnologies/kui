@@ -1,7 +1,7 @@
 {
 	"name": "@keslers/kui",
 	"private": false,
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"license": "ISC",
 	"type": "module",
 	"exports": {
