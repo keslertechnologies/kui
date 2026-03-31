@@ -1,7 +1,7 @@
 {
 	"name": "@keslers/kui",
-	"private": false,
 	"version": "1.1.1",
+	"description": "Keslers React Component Library",
 	"license": "ISC",
 	"type": "module",
 	"exports": {
@@ -15,23 +15,20 @@
 			"require": "./dist/styles.css"
 		}
 	},
-	"files": [
-		"dist"
-	],
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"publishConfig": {
-		"access": "public"
-	},
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"dev": "vite",
 		"build": "tsup && npm run build:css",
 		"build:css": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/styles.css --minify",
+		"build-storybook": "storybook build",
+		"dev": "vite",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"storybook": "storybook dev -p 6006"
 	},
 	"dependencies": {
 		"@fontsource-variable/geist": "^5.2.8",
@@ -66,5 +63,8 @@
 		"typescript-eslint": "^8.44.0",
 		"vite": "^7.1.7",
 		"vite-tsconfig-paths": "^6.1.1"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
