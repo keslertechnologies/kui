@@ -1,3 +1,5 @@
+[![GitLab](https://img.shields.io/badge/GitLab-FC6D26?logo=gitlab&logoColor=white)](https://gitlab.com/keslers/kui)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/keslertechnologies/kui)
 [![npm version](https://img.shields.io/npm/v/@keslers/kui.svg)](https://www.npmjs.com/package/@keslers/kui)
 [![npm downloads](https://img.shields.io/npm/dm/@keslers/kui.svg)](https://www.npmjs.com/package/@keslers/kui)
 [![license](https://img.shields.io/npm/l/@keslers/kui)](https://www.npmjs.com/package/@keslers/kui)
