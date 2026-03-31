@@ -1,3 +1,7 @@
+[![npm version](https://img.shields.io/npm/v/@keslers/kui.svg)](https://www.npmjs.com/package/@keslers/kui)
+[![npm downloads](https://img.shields.io/npm/dm/@keslers/kui.svg)](https://www.npmjs.com/package/@keslers/kui)
+[![license](https://img.shields.io/npm/l/@keslers/kui)](https://www.npmjs.com/package/@keslers/kui)
+
 # @keslers/kui Component Library
 
 A hyper-opinionated React component library built with Tailwind v4, shadcn/ui, and react-icons. Provides pre-styled components like Header, Footer, and Layout for quick setup in dark-themed apps.
