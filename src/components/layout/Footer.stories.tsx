@@ -1,9 +1,8 @@
 // src/components/Footer.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
-import { Footer } from "./Footer";
-
 // React-icons for social examples
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Footer } from "./Footer";
 
 const meta: Meta<typeof Footer> = {
 	title: "Layout/Footer",
@@ -68,6 +67,7 @@ export const Default: Story = {
 		links,
 		socials,
 		copyright,
+		version: "1.0.0",
 	},
 	parameters: {
 		docs: {
@@ -77,13 +77,13 @@ export const Default: Story = {
 	},
 };
 
-export const Minimal: Story = {
+export const Socials: Story = {
 	args: {
-		copyright,
+		socials,
 	},
 	parameters: {
 		docs: {
-			description: "Footer with minimal content (copyright only).",
+			description: "Footer focusing on social media icons.",
 		},
 	},
 };
@@ -99,13 +99,24 @@ export const Navigation: Story = {
 	},
 };
 
-export const Socials: Story = {
+export const Version: Story = {
 	args: {
-		socials,
+		version: "2.4.1",
 	},
 	parameters: {
 		docs: {
-			description: "Footer focusing on social media icons.",
+			description: "Footer displaying a subtle version number.",
+		},
+	},
+};
+
+export const Copyright: Story = {
+	args: {
+		copyright,
+	},
+	parameters: {
+		docs: {
+			description: "Footer with copyright only.",
 		},
 	},
 };

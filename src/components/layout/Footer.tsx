@@ -2,7 +2,7 @@
 
 "use client";
 
-import { type IconType } from "react-icons";
+import type { IconType } from "react-icons";
 import { FiExternalLink } from "react-icons/fi";
 
 interface LinkItem {
@@ -27,12 +27,14 @@ interface FooterProps {
 	links?: LinkItem[];
 	socials?: SocialItem[];
 	copyright?: CopyrightItem;
+	version?: string;
 }
 
 export function Footer({
 	links = [],
 	socials = [],
 	copyright,
+	version,
 	...props
 }: FooterProps) {
 	return (
@@ -89,8 +91,13 @@ export function Footer({
 					</ul>
 
 					{/* Copyright */}
-					{copyright && (
-						<div className="kui:order-2 kui:md:order-3 kui:font-medium kui:tracking-widest kui:whitespace-nowrap">
+					<div className="kui:order-2 kui:md:order-3 kui:font-medium kui:tracking-widest kui:whitespace-nowrap kui:flex kui:items-center kui:gap-3">
+						{version && (
+							<span className=" kui:text-muted-foreground/70 kui:select-none">
+								v{version}
+							</span>
+						)}
+						{copyright && (
 							<a
 								href={copyright?.companyUrl}
 								target="_blank"
@@ -99,8 +106,8 @@ export function Footer({
 							>
 								© {new Date().getFullYear()} {copyright?.companyName}
 							</a>
-						</div>
-					)}
+						)}
+					</div>
 				</div>
 			</div>
 		</footer>
