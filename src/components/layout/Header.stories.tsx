@@ -1,7 +1,7 @@
 // src/components/layout/Header.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Header } from "./Header";
 import { IconWithBadge } from "../misc/IconWithBadge";
+import { Header } from "./Header";
 
 const meta: Meta<typeof Header> = {
 	title: "Layout/Header",

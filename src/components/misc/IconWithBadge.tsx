@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import { ShoppingCart } from "lucide-react";
+import * as React from "react";
 
 export interface IconWithBadgeProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement> {

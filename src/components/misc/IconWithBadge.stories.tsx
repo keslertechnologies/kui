@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { IconWithBadge } from "./IconWithBadge";
 import { Bell, Mail } from "lucide-react";
+import { IconWithBadge } from "./IconWithBadge";
 
 const meta: Meta<typeof IconWithBadge> = {
 	title: "Misc/IconWithBadge",

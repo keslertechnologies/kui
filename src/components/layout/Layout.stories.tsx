@@ -1,9 +1,9 @@
 // src/components/layout/Layout.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
-import { Layout } from "./Layout";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+import { Layout } from "./Layout";
 
 const meta: Meta<typeof Layout> = {
 	title: "Layout/Layout",
@@ -53,6 +53,7 @@ const copyright = {
 	companyUrl: "https://keslertechnologies.com",
 };
 
+import React from "react";
 import { Sidebar } from "./Sidebar";
 
 export const Default: Story = {
@@ -177,23 +178,26 @@ export const WithSidebar: Story = {
 
 					{/* Scrollable content so you can see the footer at the bottom */}
 					<div>
-						{Array.from({ length: 16 }, (_, i) => (
-							<div key={i}>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Phasellus id feugiat orci. Pellentesque placerat facilisis
-								finibus. Praesent in ligula et augue venenatis tempus et vel ex.
-								Fusce aliquam neque quam, consectetur mollis nibh cursus ut.
-								Phasellus interdum enim tellus, a vestibulum lectus viverra
-								quis. In pharetra, leo quis dignissim convallis, leo nulla
-								euismod justo, at tempor odio metus a augue. Pellentesque velit
-								lectus, scelerisque ac commodo quis, feugiat vitae lacus. Etiam
-								tempor neque a pharetra tristique. Vivamus felis ligula, lacinia
-								a feugiat id, luctus vel tellus. Nunc malesuada nisi in dui
-								lobortis, eu iaculis tortor venenatis. Integer pharetra urna nec
-								ex suscipit, quis varius diam facilisis. Nunc quis mollis ex,
-								quis volutpat lectus.
-							</div>
-						))}
+						{Array.from({ length: 16 }, () => {
+							const id = React.useId();
+							return (
+								<div key={id}>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Phasellus id feugiat orci. Pellentesque placerat facilisis
+									finibus. Praesent in ligula et augue venenatis tempus et vel
+									ex. Fusce aliquam neque quam, consectetur mollis nibh cursus
+									ut. Phasellus interdum enim tellus, a vestibulum lectus
+									viverra quis. In pharetra, leo quis dignissim convallis, leo
+									nulla euismod justo, at tempor odio metus a augue.
+									Pellentesque velit lectus, scelerisque ac commodo quis,
+									feugiat vitae lacus. Etiam tempor neque a pharetra tristique.
+									Vivamus felis ligula, lacinia a feugiat id, luctus vel tellus.
+									Nunc malesuada nisi in dui lobortis, eu iaculis tortor
+									venenatis. Integer pharetra urna nec ex suscipit, quis varius
+									diam facilisis. Nunc quis mollis ex, quis volutpat lectus.
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>

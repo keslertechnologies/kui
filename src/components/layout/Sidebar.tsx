@@ -38,9 +38,9 @@ export function Sidebar({ sections = [], className }: SidebarProps) {
 							{section.title}
 						</h3>
 						<nav className="kui:flex kui:flex-col kui:gap-1">
-							{section.links.map((link, i) => (
+							{section.links.map((link) => (
 								<a
-									key={`${link.label}-${i}`}
+									key={link.label}
 									href={link.href}
 									onClick={(e) => {
 										if (link.onClick) {
