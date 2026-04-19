@@ -1,3 +1,5 @@
+// src/components/misc/IconWithBadge.tsx
+
 "use client";
 
 import { ShoppingCart } from "lucide-react";

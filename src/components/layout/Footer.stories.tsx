@@ -1,4 +1,5 @@
-// src/components/Footer.stories.tsx
+// src/components/layout/Footer.stories.tsx
+
 import type { Meta, StoryObj } from "@storybook/react";
 // React-icons for social examples
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";

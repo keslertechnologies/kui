@@ -1,4 +1,4 @@
-// src/components/Footer.tsx
+// src/components/layout/Footer.tsx
 
 "use client";
 

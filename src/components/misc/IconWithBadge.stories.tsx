@@ -1,3 +1,5 @@
+// src/components/misc/IconWithBadge.stories.tsx
+
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Bell, Mail } from "lucide-react";
 import { IconWithBadge } from "./IconWithBadge";

@@ -1,4 +1,4 @@
-// client/src/components/custom/sheet.tsx
+// src/components/custom/sheet.tsx
 
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
